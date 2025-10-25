@@ -1,7 +1,38 @@
-# Tauri + React + Typescript
+# Multi-Tool
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+**Multi-Tool** is an extensible desktop utility app built with Tauri and React. Inspired by PowerToys and developer toolkits, it provides a unified interface for a variety of productivity tools.
 
-## Recommended IDE Setup
+## Features
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+- Sidebar for quick tool selection
+- Modular tool system: easily add new tools or validators
+- Built-in tools include:
+  - XML Validator with syntax highlighting and error location
+  - Simple math and string utilities
+- Syntax-highlighted code editor with caret position display
+- Designed for future plugin and extension support
+
+## Getting Started
+
+1. Install dependencies:
+   ```
+   npm install
+   ```
+2. Run in development mode:
+   ```
+   npm run tauri dev
+   ```
+3. Build for release:
+   ```
+   npm run tauri build
+   ```
+
+## Extending
+
+To add a new tool:
+- Create a React component in `src/tools/`
+- Register it in `src/toolRegistry.ts`
+
+The architecture is ready for future plugin support.
+
+---
