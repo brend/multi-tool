@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
+import CodeEditor from "./CodeEditor";
 
 const XmlValidator: React.FC = () => {
   const [xml, setXml] = useState("");
@@ -24,14 +25,7 @@ const XmlValidator: React.FC = () => {
   return (
     <div>
       <h2>XML Validator</h2>
-      <textarea
-        value={xml}
-        onChange={(e) => setXml(e.target.value)}
-        rows={10}
-        cols={60}
-        placeholder="Paste your XML here"
-        style={{ fontFamily: "monospace", width: "100%" }}
-      />
+      <CodeEditor value={xml} onChange={setXml} language="xml" height="200px" />
       <br />
       <button onClick={handleValidate}>Validate</button>
       {result && (
