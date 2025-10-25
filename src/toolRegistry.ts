@@ -1,6 +1,7 @@
 import { Tool } from "./Tool";
 import DummyToolA from "./tools/DummyToolA";
 import DummyToolB from "./tools/DummyToolB";
+import XmlValidator from "./tools/XmlValidator";
 
 export const toolRegistry: Tool[] = [
   {
@@ -16,5 +17,12 @@ export const toolRegistry: Tool[] = [
     icon: "🅱️",
     description: "This is the second dummy tool.",
     Component: DummyToolB,
+  },
+  {
+    id: "xmlValidator",
+    name: "XML Validator",
+    icon: "📄",
+    description: "Validate XML documents.",
+    Component: XmlValidator,
   },
 ];

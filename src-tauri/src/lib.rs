@@ -16,11 +16,25 @@ fn reverse_string(input: String) -> String {
     input.chars().rev().collect()
 }
 
+// XML Validator: Check if input is valid XML
+#[tauri::command]
+fn validate_xml(input: String) -> Result<(), String> {
+    match xmltree::Element::parse(input.as_bytes()) {
+        Ok(_) => Ok(()),
+        Err(e) => Err(format!("Invalid XML: {}", e)),
+    }
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![greet, add_numbers, reverse_string])
+        .invoke_handler(tauri::generate_handler![
+            greet,
+            add_numbers,
+            reverse_string,
+            validate_xml
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
