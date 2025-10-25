@@ -2000,6 +2000,7 @@ name = "multi-tool"
 version = "0.1.0"
 dependencies = [
  "quick-xml 0.31.0",
+ "regex",
  "serde",
  "serde_json",
  "tauri",
